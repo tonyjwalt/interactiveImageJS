@@ -28,8 +28,7 @@ if (typeof jQuery === "undefined") {
       actionFramesArr: [ 101, 200 ],
       interactive: true,
       automate: true,
-      actionFlag: false,
-      actionPlayingFlag: false
+      actionFlag: false
     },
     //**********************//
     //    PRIVATE METHODS    //
@@ -43,6 +42,7 @@ if (typeof jQuery === "undefined") {
       this.loopArr = []; //array to contain lookup values to move playhead - less math
       this.currentFrame = 0; //default the playhead to 0
       this.inita = null; //timer to move playhead
+      this.actionPlayingFlag = false; // set the initial state of the action playing flag
       this._populateFrameArr(this.options.loopStartFrame, this.options.loopEndFrame, this.loopArr);
 
       this._bindEvents();
@@ -65,14 +65,18 @@ if (typeof jQuery === "undefined") {
       } );
     },
     _bindButtons: function () {
-      var self = this;
-      self.$filmStrip.on( 'mouseenter', function(){
-        self.options.actionFlag = true;
-      });
+      // var self = this;
+      // self.$filmStrip.on( 'mouseenter', function(){
+      //   if ( $.isFunction( self.options.mouseOverEvent ) ) {
+      //     self.options.mouseOverEvent();
+      //   } 
+      // });
 
-      self.$filmStrip.on( 'click', function(){
-        $(this).trigger('stop');
-      });
+      // self.$filmStrip.on( 'click', function(){
+      //   if ( $.isFunction( self.options.clickEvent ) ) {
+      //     self.options.clickEvent();
+      //   }
+      // });
     },
     _populateFrameArr : function (start, end, arr) {
       var i = 0,       
@@ -88,7 +92,7 @@ if (typeof jQuery === "undefined") {
     //**********************//
     advFrame: function ( v ) {
       var ittr = v || 1, //default the itteration to 1 if it's not defined
-        currentArr = ( this.options.actionPlayingFlag ) ? this.actionArr : this.loopArr,
+        currentArr = ( this.actionPlayingFlag ) ? this.actionArr : this.loopArr,
         testVal = this.currentFrame + ittr,
         bgLookupVal, tempVal;
       
@@ -96,11 +100,11 @@ if (typeof jQuery === "undefined") {
       if ( testVal >= currentArr.length ) {
         //reset the playhead and the action play flag
         bgLookupVal = 0;
-        this.options.actionPlayingFlag = false;
+        this.actionPlayingFlag = false;
         //check the action flag to determine current array
         if ( this.options.actionFlag ) {
           this.clearActionFlag();
-          this.options.actionPlayingFlag = true;
+          this.actionPlayingFlag = true;
         }
       } else {
         bgLookupVal = testVal;
@@ -117,7 +121,7 @@ if (typeof jQuery === "undefined") {
       this.currentFrame = bgLookupVal;
     },
     stopPlay: function () {
-      $(this).trigger('stop');
+      this.$filmStrip.trigger('stop');
     },
     startPlay:function ()  {
       var self = this;
@@ -125,6 +129,9 @@ if (typeof jQuery === "undefined") {
         //advance to next item when triggered
         self.advFrame();
       }, self.timerRate );
+    },
+    triggerAction: function () {
+      this.options.actionFlag = true;
     },
     clearActionFlag: function () {
       this.options.actionFlag = false;

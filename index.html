@@ -25,6 +25,14 @@
           loopEndFrame: 30,
           actionFramesArr: [ 31, 99 ]
         } );
+        //Example to trigger action loop
+        $myIntImg.on('mouseenter', function () {
+          $myIntImg.intImage('triggerAction');
+        });
+        //Example to stop loop
+        $myIntImg.on('click', function () {
+          $myIntImg.intImage('stopPlay');
+        });
       } );
     </script>
   </body>

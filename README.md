@@ -25,6 +25,7 @@ A Jquery Widget that allows the user to take a filmstrip image and create a loop
 * advFrame ( Number ) - Number: Number of frames to advance defaults to 1 if undefined
 * stopPlay () - stops the interactive image timer
 * startPlay () - starts the interactive image timer
+* triggerAction () - sets the action flag to trigger the action loop
 * clearActionFlag () - clears the action flag (which triggers the action loop)
 
 ### Example Use
