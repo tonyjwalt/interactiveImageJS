@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IntImg</title>
+    <link rel="stylesheet" href="_css/intImg.css">
+  </head>
+
+  <body>
+    <div id="intImg" class="intImg"></div>
+    <!-- get Jquery by CDN or local -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="_js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+    <!-- Vendor scripts -->
+    <script src="_js/vendor/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="_js/interactiveImageJS.js"></script>
+
+    <!-- page level script -->
+    <script>
+      $( function() {
+        // INITIALIZE Image
+        var $myIntImg = $('#intImg').intImage( { 
+          frameSize: 130,
+          frameRate: 20,
+          loopEndFrame: 30,
+          actionFramesArr: [ 31, 99 ]
+        } );
+      } );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.intImg {
+  width: 130px;
+  height: 130px;
+  display: block;
+  overflow: hidden;
+  background: url(../_img/deer_glyph.png) 0 0 no-repeat;
+}
