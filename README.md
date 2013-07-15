@@ -19,7 +19,6 @@ A Jquery Widget that allows the user to take a filmstrip image and create a loop
 * interactive: true - boolean: whether or not the image has an action loop
 * automate: true - boolean: whether to automatically trigger the loop on load
 * actionFlag: false - boolean: flag used to trigger an 'action loop' at the loop interchange
-* actionPlayingFlag: false - boolean: flag used to indicate if the actionloop is actively playing
 
 ### Public Methods
 * advFrame ( Number ) - Number: Number of frames to advance defaults to 1 if undefined
