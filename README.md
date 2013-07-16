@@ -13,8 +13,7 @@ A Jquery Widget that allows the user to take a filmstrip image and create a loop
 * frameSize: 50 - number: width or height of the filmstrip frame given the direction of motion
 * filmUnits: 'px' - string: units to slide frame
 * frameRate: 30 - number: rate of play in frames per second
-* loopStartFrame: 0 - number: frame to start the loop
-* loopEndFrame: 100 - number: frame to end the loop
+* loopFrameArr: [ 0, 100 ] - array: numbers for the begining and ending frames of the base loop 
 * actionFramesArr: [ 101, 200 ] - array: numbers for the begining and ending frames of the action loop 
 * interactive: true - boolean: whether or not the image has an action loop
 * automate: true - boolean: whether to automatically trigger the loop on load

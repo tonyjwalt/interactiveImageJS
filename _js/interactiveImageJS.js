@@ -23,8 +23,7 @@ if (typeof jQuery === "undefined") {
       frameSize: 50, // may want to detect this if not provided.
       filmUnits: 'px', //currently not using this
       frameRate: 30,
-      loopStartFrame: 0,
-      loopEndFrame: 100, //may want to detect this if not provided
+      loopFrameArr: [ 0, 100 ],
       actionFramesArr: [ 101, 200 ],
       interactive: true,
       automate: true,
@@ -43,7 +42,7 @@ if (typeof jQuery === "undefined") {
       this.currentFrame = 0; //default the playhead to 0
       this.inita = null; //timer to move playhead
       this.actionPlayingFlag = false; // set the initial state of the action playing flag
-      this._populateFrameArr(this.options.loopStartFrame, this.options.loopEndFrame, this.loopArr);
+      this._populateFrameArr(this.options.loopFrameArr[0], this.options.loopFrameArr[1], this.loopArr);
 
       this._bindEvents();
       
