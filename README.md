@@ -6,6 +6,14 @@ A Jquery Widget that allows the user to take a filmstrip image and create a loop
 1. jQuery 1.9+
 2. jQuery UI 1.8.16+ - To make the widget
 
+### Assets Folder
+This folder contains the assets I used to make the deer loop (just not the 3D file). 
+1. Swap the source footage (replace footage)
+2. Adjust the comp size
+3. Adjust the sliders on the first layer to correct the expressions for frame rate, etc.
+4. Simply duplicate the layer (CTRL + D) once for each frame
+5. Finally produce your final image with a single frame render in the render queue.
+
 ### Options
 * filmStripClass: '' - string: name of the class to use for the widget if not the main element
 * controlAttr: 'background-position' - string: attribute to adjust 
