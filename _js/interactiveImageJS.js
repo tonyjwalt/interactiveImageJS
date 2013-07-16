@@ -46,10 +46,10 @@ if (typeof jQuery === "undefined") {
 
       this._bindEvents();
       
+      //populate an action array if there is one
       if (this.options.interactive) {
         this.actionArr = [];
         this._populateFrameArr(this.options.actionFramesArr[0] , this.options.actionFramesArr[1] , this.actionArr);
-        this._bindButtons();
       }
 
       //if set to automate start the loop
@@ -62,20 +62,6 @@ if (typeof jQuery === "undefined") {
       this.$filmStrip.on( 'stop', function() {
         window.clearInterval( self.inta );
       } );
-    },
-    _bindButtons: function () {
-      // var self = this;
-      // self.$filmStrip.on( 'mouseenter', function(){
-      //   if ( $.isFunction( self.options.mouseOverEvent ) ) {
-      //     self.options.mouseOverEvent();
-      //   } 
-      // });
-
-      // self.$filmStrip.on( 'click', function(){
-      //   if ( $.isFunction( self.options.clickEvent ) ) {
-      //     self.options.clickEvent();
-      //   }
-      // });
     },
     _populateFrameArr : function (start, end, arr) {
       var i = 0,       
